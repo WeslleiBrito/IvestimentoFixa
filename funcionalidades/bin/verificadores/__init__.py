@@ -5,7 +5,7 @@ def leiaint(msg):
         except (ValueError, TypeError):
             print(f'\033[1;31mInforme apenas números, tente novamente.\033[0m')
         else:
-            return n
+            return int(n)
 
 
 def leiafloat(msg):
@@ -17,7 +17,7 @@ def leiafloat(msg):
         except (ValueError, TypeError):
             print(f'\033[1;31mInforme o valor valido, tente novamente.\033[m')
         else:
-            return vr
+            return float(vr)
 
 
 def simnao(msg):
