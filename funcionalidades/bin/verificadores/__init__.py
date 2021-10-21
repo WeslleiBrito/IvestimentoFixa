@@ -27,7 +27,7 @@ def simnao(msg):
             if letra == 'S':
                 return letra
             else:
-                return 0
+                return 1
         else:
             print('\033[1;31mInforme [N] Não ou [S] Sim.\033[0m')
 

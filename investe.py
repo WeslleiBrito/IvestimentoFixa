@@ -1,13 +1,16 @@
 from funcionalidades.bin import verificadores
 from funcionalidades.bin import aplicacao
 from funcionalidades.bin import interface
-vencimento = verificadores.simnao('O papel tem vencimento [S]/[N]? ')
+
+valor = verificadores.leiafloat('Quanto deseja investir? ')
+taxajuros = verificadores.leiafloat('Informe a taxa de Juros %: ')
+vencimento = verificadores.simnao('O papel possui vencimento [S] sim ou [N] não: ')
 if vencimento == 'S':
-    prazo = verificadores.leiafloat('Vencimento do papel em meses: ')
+    prazo = verificadores.leiaint('O papel vence em quantos meses: ')
 else:
     prazo = vencimento
-verificadores.leiaint('Informe o número de meses da aplicação: ')
-verificadores.leiafloat('Informe a taxa de Juros %: ')
+
+
 interface.tipos()
 
 
