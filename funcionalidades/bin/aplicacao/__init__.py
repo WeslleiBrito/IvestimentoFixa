@@ -37,17 +37,21 @@ def imposto(prazo):
 
 
 def calculadora(valor, taxa, ir, repete):
-
+    ip = 0
     for c in range(0, repete):
-        lucrob = valor * (taxa / 100)
-        lucrol = floor(lucrob - lucrob * ir)
+        lucrob = valor * taxa
+        lucrol = lucrob - lucrob * ir
+        ip += lucrob * ir
+        print(f'{c + 1} - {ip:.3f}')
         valor += lucrol
 
-    print(f'Montante: {valor}')
+    print(f'Montante: {valor:.2f}')
 
 
 def conversor(taxa):
-    return pow((1 + (taxa/100)), 12) - 1
+    f = 1/12
+    t = taxa /100 + 1
+    return pow(t, f) - 1
 
 
 
