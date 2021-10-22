@@ -1,6 +1,6 @@
 from funcionalidades.bin import interface
 from funcionalidades.bin import verificadores
-from math import floor
+from math import floor, pow
 vrdias = len(interface.dias)
 tamanho = len(interface.investimento)
 
@@ -36,7 +36,7 @@ def imposto(prazo):
         return 0.15
 
 
-def calculadora(valor, taxa, ir, repete=1):
+def calculadora(valor, taxa, ir, repete):
 
     for c in range(0, repete):
         lucrob = valor * (taxa / 100)
@@ -44,6 +44,10 @@ def calculadora(valor, taxa, ir, repete=1):
         valor += lucrol
 
     print(f'Montante: {valor}')
+
+
+def conversor(taxa):
+    return pow((1 + (taxa/100)), 12) - 1
 
 
 
