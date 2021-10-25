@@ -1,6 +1,7 @@
 from funcionalidades.bin import interface
 from funcionalidades.bin import verificadores
 from math import floor, pow
+
 vrdias = len(interface.dias)
 tamanho = len(interface.investimento)
 
@@ -25,7 +26,6 @@ def escolhaprazo(msg):
 
 
 def imposto(prazo):
-
     if prazo < 6:
         return 0.225
     elif 6 < prazo <= 12:
@@ -38,20 +38,20 @@ def imposto(prazo):
 
 def calculadora(valor, taxa, ir, repete):
     ip = 0
+    l = 0
     for c in range(0, repete):
         lucrob = valor * taxa
         lucrol = lucrob - lucrob * ir
         ip += lucrob * ir
+        l += lucrol
         print(f'{c + 1} - {ip:.3f}')
+        print(f'\033[1;34m{c + 1} - {l:.3f}\033[0m')
         valor += lucrol
 
     print(f'Montante: {valor:.2f}')
 
 
 def conversor(taxa):
-    f = 1/12
-    t = taxa /100 + 1
+    f = 1 / 12
+    t = (taxa / 100) + 1
     return pow(t, f) - 1
-
-
-
