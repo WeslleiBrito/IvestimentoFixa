@@ -39,15 +39,23 @@ def imposto(prazo):
 def calculadora(valor, taxa, ir, repete):
     ip = 0
     l = 0
+    cor = 1
+    interface.linha()
+    print(interface.titulo)
     for c in range(0, repete):
+        if c % 2 == 0:
+            cores = 1
+        else:
+            cores = 2
         lucrob = valor * taxa
         lucrol = lucrob - lucrob * ir
+        i = lucrob * ir
         ip += lucrob * ir
         l += lucrol
-        print(f'{c + 1} - {ip:.3f}')
-        print(f'\033[1;34m{c + 1} - {l:.3f}\033[0m')
         valor += lucrol
+        interface.tabela(c + 1, i, lucrob, lucrol, valor, cores)
 
+    interface.linha()
     print(f'Montante: {valor:.2f}')
 
 

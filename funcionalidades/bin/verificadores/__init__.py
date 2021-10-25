@@ -22,12 +22,13 @@ def leiafloat(msg):
 
 def simnao(msg):
     while True:
-        letra = str(input(msg).upper()[0])
-        if letra in 'NS':
-            if letra == 'S':
-                return letra
-            else:
-                return 1
-        else:
+        try:
+            letra = str(input(msg).upper()[0])
+        except:
             print('\033[1;31mInforme [N] Não ou [S] Sim.\033[0m')
-
+        else:
+            if letra in 'NS':
+                if letra == 'S':
+                    return letra
+                else:
+                    return 1
