@@ -40,3 +40,21 @@ def tabela(num=0, ir=0, lucrobruto=0, lucroliquido=0, acumulado=0, cor=0):
                                                                                            lucroliquido, acumulado))
     else:
         print('|{:^6}|{:^10.2f}|{:^10.2f}|{:^13.2f}|{:^11.2f}|'.format(num, ir, lucrobruto, lucroliquido, acumulado))
+
+
+def resumo(inicial, taxajuros, ir, lucrobruto, lucroliquido, montante):
+    inicial = str(inicial).replace('.', ',')
+    taxajuros = taxajuros * 100
+    taxajuros = str(taxajuros).replace('.', ',')
+    ir = str(ir).replace('.', ',')
+    lucrobruto = str(lucrobruto).replace('.', ',')
+    lucroliquido = str(lucroliquido).replace('.', ',')
+    montante = str(montante).replace('.', ',')
+    print(f'Valor inicial:{inicial:>5}')
+    print(f'Taxa de juros:{taxajuros:>5}')
+    print(f'Imposto de renda:{ir:>5}')
+    print(f'Lucro bruto:{lucrobruto:>5}')
+    print(f'Lucro líquido:{lucroliquido:>5}')
+    print(f'Montante:{montante:>5}')
+
+

@@ -39,7 +39,9 @@ def imposto(prazo):
 def calculadora(valor, taxa, ir, repete):
     ip = 0
     l = 0
-    cor = 1
+    lucrobacumulado = 0
+    lucrolacumulado = 0
+    inicial = valor
     interface.linha()
     print(interface.titulo)
     for c in range(0, repete):
@@ -48,7 +50,9 @@ def calculadora(valor, taxa, ir, repete):
         else:
             cores = 2
         lucrob = valor * taxa
+        lucrobacumulado += lucrob
         lucrol = lucrob - lucrob * ir
+        lucrolacumulado += lucrol
         i = lucrob * ir
         ip += lucrob * ir
         l += lucrol
@@ -56,7 +60,7 @@ def calculadora(valor, taxa, ir, repete):
         interface.tabela(c + 1, i, lucrob, lucrol, valor, cores)
 
     interface.linha()
-    print(f'Montante: {valor:.2f}')
+    interface.resumo(inicial, taxa, ip, lucrolacumulado, l, valor)
 
 
 def conversor(taxa):
