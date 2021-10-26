@@ -49,12 +49,12 @@ def resumo(inicial, taxajuros, i, ir, lucrobruto, lucroliquido, montante):
     lucrobruto = str(f'{lucrobruto:.2f}').replace('.', ',')
     lucroliquido = str(f'{lucroliquido:.2f}').replace('.', ',')
     montante = str(f'{montante:.2f}').replace('.', ',')
-    print(f'{"Valor inicial R$:":<22}{inicial:>10}')
-    print(f'{"Taxa de juros %a.m:":<22}{taxajuros:>10}')
-    print(f'{"Imposto de Renda %":<22}{i:>10}')
-    print(f'{"Imposto de renda R$:":<22}{ir:>10}')
-    print(f'{"Lucro bruto R$:":<22}{lucrobruto:>10}')
-    print(f'{"Lucro líquido R$:":<22}{lucroliquido:>10}')
+    print(f'{"Valor Inicial R$:":<22}{inicial:>10}')
+    print(f'{"Taxa de Juros %a.m:":<22}{taxajuros:>10}')
+    print(f'{"Imposto de Renda %:":<22}{i:>10}')
+    print(f'{"Imposto de Renda R$:":<22}{ir:>10}')
+    print(f'{"Lucro Bruto R$:":<22}{lucrobruto:>10}')
+    print(f'{"Lucro Líquido R$:":<22}{lucroliquido:>10}')
     print(f'{"Montante R$:":<22}{montante:>10}')
 
 

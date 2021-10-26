@@ -1,7 +1,9 @@
 from funcionalidades.bin import verificadores
 from funcionalidades.bin import aplicacao
-
-valor = verificadores.leiafloat('Quanto deseja investir? ')
+aporte = 0
+valor = verificadores.leiafloat('Valor inicial? ')
+if verificadores.simnao('Aporte mensal Sim[S] ou Não[N]? ') == 'S':
+    aporte = verificadores.leiafloat('Qual o valor do aporte mensal? ')
 formajuros = verificadores.leiaint('O juros é anual[1]  ou mensal[2]? ')
 taxajuros = verificadores.leiafloat('Informe a taxa de Juros %: ')
 tempo = 0
@@ -18,6 +20,7 @@ else:
     while True:
         tempoaplicacao = verificadores.leiaint('Quanto tempo pretende manter o investimento(meses): ')
         if tempoaplicacao >= 1:
+            taxajuros = taxajuros / 100
             break
         else:
             print(f'\033[1;31mO tempo de aplicação deve ser de no mínimo 1 mês.\033[0m')
@@ -30,4 +33,4 @@ else:
 
 i = aplicacao.imposto(tempo)
 
-aplicacao.calculadora(valor, taxajuros, i, tempoaplicacao)
+aplicacao.calculadora(valor, taxajuros, i, tempoaplicacao, aporte)

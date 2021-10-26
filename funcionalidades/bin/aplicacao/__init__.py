@@ -1,6 +1,6 @@
 from funcionalidades.bin import interface
 from funcionalidades.bin import verificadores
-from math import floor, pow
+from math import pow
 
 vrdias = len(interface.dias)
 tamanho = len(interface.investimento)
@@ -36,7 +36,7 @@ def imposto(prazo):
         return 0.15
 
 
-def calculadora(valor, taxa, ir, repete):
+def calculadora(valor, taxa, ir, repete, aporte):
     ip = 0
     l = 0
     lucrobacumulado = 0
@@ -49,14 +49,20 @@ def calculadora(valor, taxa, ir, repete):
             cores = 1
         else:
             cores = 2
-        lucrob = valor * taxa
+        if c == 0:
+            lucrob = valor * taxa
+        else:
+            lucrob = (valor + aporte) * taxa
         lucrobacumulado += lucrob
         lucrol = lucrob - lucrob * ir
         lucrolacumulado += lucrol
         i = lucrob * ir
         ip += lucrob * ir
         l += lucrol
-        valor += lucrol
+        if c != 0:
+            valor += lucrol + aporte
+        else:
+            valor += lucrol
         interface.tabela(c + 1, i, lucrob, lucrol, valor, cores)
 
     interface.linha()
