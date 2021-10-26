@@ -30,31 +30,31 @@ def linha():
 
 
 def tabela(num=0, ir=0, lucrobruto=0, lucroliquido=0, acumulado=0, cor=0):
-    linha()
-    # print(f"{'| Mês ':7}{'| Imposto ':11}{'| L. Bruto ':9}{'| L. Liquido ':14}{'| Acumulado |':14}")
+    ir = str(f'{ir:.2f}').replace('.', ',')
+    lucrobruto = str(f'{lucrobruto:.2f}').replace('.', ',')
+    lucroliquido = str(f'{lucroliquido:.2f}').replace('.', ',')
+    acumulado = str(f'{acumulado:.2f}').replace('.', ',')
     if cor == 1:
-        print('\033[1;30;42m|{:^6}|{:^10.2f}|{:^10.2f}|{:^13.2f}|{:^11.2f}|\033[0m'.format(num, ir, lucrobruto,
-                                                                                           lucroliquido, acumulado))
-    elif cor == 2:
-        print('\033[1;30;44m|{:^6}|{:^10.2f}|{:^10.2f}|{:^13.2f}|{:^11.2f}|\033[0m'.format(num, ir, lucrobruto,
-                                                                                           lucroliquido, acumulado))
+        print(f'\033[1;30;46m|{num:^6}|{ir:^10}|{lucrobruto:^10}|{lucroliquido:^13}|{acumulado:^11}|\033[0m')
     else:
-        print('|{:^6}|{:^10.2f}|{:^10.2f}|{:^13.2f}|{:^11.2f}|'.format(num, ir, lucrobruto, lucroliquido, acumulado))
+        print(f'\033[1;30;44m|{num:^6}|{ir:^10}|{lucrobruto:^10}|{lucroliquido:^13}|{acumulado:^11}|\033[0m')
 
 
-def resumo(inicial, taxajuros, ir, lucrobruto, lucroliquido, montante):
-    inicial = str(inicial).replace('.', ',')
+def resumo(inicial, taxajuros, i, ir, lucrobruto, lucroliquido, montante):
+    inicial = str(f'{inicial:.2f}').replace('.', ',')
     taxajuros = taxajuros * 100
-    taxajuros = str(taxajuros).replace('.', ',')
-    ir = str(ir).replace('.', ',')
-    lucrobruto = str(lucrobruto).replace('.', ',')
-    lucroliquido = str(lucroliquido).replace('.', ',')
-    montante = str(montante).replace('.', ',')
-    print(f'Valor inicial:{inicial:>5}')
-    print(f'Taxa de juros:{taxajuros:>5}')
-    print(f'Imposto de renda:{ir:>5}')
-    print(f'Lucro bruto:{lucrobruto:>5}')
-    print(f'Lucro líquido:{lucroliquido:>5}')
-    print(f'Montante:{montante:>5}')
+    taxajuros = str(f'{taxajuros:.2f}').replace('.', ',')
+    i = str(f'{i * 100:.2f}').replace('.', ',')
+    ir = str(f'{ir:.2f}').replace('.', ',')
+    lucrobruto = str(f'{lucrobruto:.2f}').replace('.', ',')
+    lucroliquido = str(f'{lucroliquido:.2f}').replace('.', ',')
+    montante = str(f'{montante:.2f}').replace('.', ',')
+    print(f'{"Valor inicial R$:":<22}{inicial:>10}')
+    print(f'{"Taxa de juros %a.m:":<22}{taxajuros:>10}')
+    print(f'{"Imposto de Renda %":<22}{i:>10}')
+    print(f'{"Imposto de renda R$:":<22}{ir:>10}')
+    print(f'{"Lucro bruto R$:":<22}{lucrobruto:>10}')
+    print(f'{"Lucro líquido R$:":<22}{lucroliquido:>10}')
+    print(f'{"Montante R$:":<22}{montante:>10}')
 
 

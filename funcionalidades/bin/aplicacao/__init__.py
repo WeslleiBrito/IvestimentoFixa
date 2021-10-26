@@ -60,7 +60,7 @@ def calculadora(valor, taxa, ir, repete):
         interface.tabela(c + 1, i, lucrob, lucrol, valor, cores)
 
     interface.linha()
-    interface.resumo(inicial, taxa, ip, lucrolacumulado, l, valor)
+    interface.resumo(inicial, taxa, ir, ip, lucrobacumulado, l, valor)
 
 
 def conversor(taxa):

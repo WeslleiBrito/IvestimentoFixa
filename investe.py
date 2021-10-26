@@ -29,6 +29,5 @@ else:
     tempo = tempoaplicacao
 
 i = aplicacao.imposto(tempo)
-print(f'{taxajuros:.5f}%')
-print(f'{i * 100:.2f}%')
+
 aplicacao.calculadora(valor, taxajuros, i, tempoaplicacao)
