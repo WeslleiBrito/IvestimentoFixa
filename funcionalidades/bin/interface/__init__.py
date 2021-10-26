@@ -1,6 +1,6 @@
 investimento = ('LCI', 'CDB', 'LCA', 'LC', 'CRI', 'LF', 'CRA', 'DEBENTURES NÃO INCENTIVADA', 'DEBENTURES INCENTIVADA')
 dias = ['Até 6 meses', 'De 7 a 12 meses', 'De 13 a 24 meses', 'Acima de 24 meses']
-titulo = f"\033[1;33m{'| Mês ':7}{'| Imposto ':11}{'| L. Bruto ':9}{'| L. Liquido ':14}{'| Acumulado |':14}\033[0m"
+titulo = f"\033[1;33m{'| Mês ':7}{'| L. Bruto ':9}{'| Imposto ':11}{'| L. Liquido ':14}{'| Acumulado |':14}\033[0m"
 
 
 def tipos():
@@ -35,9 +35,9 @@ def tabela(num=0, ir=0, lucrobruto=0, lucroliquido=0, acumulado=0, cor=0):
     lucroliquido = str(f'{lucroliquido:.2f}').replace('.', ',')
     acumulado = str(f'{acumulado:.2f}').replace('.', ',')
     if cor == 1:
-        print(f'\033[1;30;46m|{num:^6}|{ir:^10}|{lucrobruto:^10}|{lucroliquido:^13}|{acumulado:^11}|\033[0m')
+        print(f'\033[1;30;46m|{num:^6}|{lucrobruto:^10}|{ir:^10}|{lucroliquido:^13}|{acumulado:^11}|\033[0m')
     else:
-        print(f'\033[1;30;44m|{num:^6}|{ir:^10}|{lucrobruto:^10}|{lucroliquido:^13}|{acumulado:^11}|\033[0m')
+        print(f'\033[1;30;44m|{num:^6}|{lucrobruto:^10}|{ir:^10}|{lucroliquido:^13}|{acumulado:^11}|\033[0m')
 
 
 def resumo(inicial, taxajuros, i, ir, lucrobruto, lucroliquido, montante, aportes, total, p):

@@ -2,7 +2,7 @@ def leiaint(msg):
     while True:
         try:
             n = int(input(msg))
-        except (ValueError, TypeError):
+        except:
             print(f'\033[1;31mInforme apenas números, tente novamente.\033[0m')
         else:
             return int(n)
