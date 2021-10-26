@@ -39,6 +39,8 @@ def imposto(prazo):
 def calculadora(valor, taxa, ir, repete, aporte):
     ip = 0
     l = 0
+    ap = 0
+    totalaplicado = 0
     lucrobacumulado = 0
     lucrolacumulado = 0
     inicial = valor
@@ -61,12 +63,14 @@ def calculadora(valor, taxa, ir, repete, aporte):
         l += lucrol
         if c != 0:
             valor += lucrol + aporte
+            ap += aporte
         else:
             valor += lucrol
         interface.tabela(c + 1, i, lucrob, lucrol, valor, cores)
-
+    totalaplicado = inicial + ap
+    porcentagem = l / totalaplicado * 100
     interface.linha()
-    interface.resumo(inicial, taxa, ir, ip, lucrobacumulado, l, valor)
+    interface.resumo(inicial, taxa, ir, ip, lucrobacumulado, l, valor, ap, totalaplicado, porcentagem)
 
 
 def conversor(taxa):

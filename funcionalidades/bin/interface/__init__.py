@@ -1,6 +1,6 @@
 investimento = ('LCI', 'CDB', 'LCA', 'LC', 'CRI', 'LF', 'CRA', 'DEBENTURES NÃO INCENTIVADA', 'DEBENTURES INCENTIVADA')
 dias = ['Até 6 meses', 'De 7 a 12 meses', 'De 13 a 24 meses', 'Acima de 24 meses']
-titulo = f"{'| Mês ':7}{'| Imposto ':11}{'| L. Bruto ':9}{'| L. Liquido ':14}{'| Acumulado |':14}"
+titulo = f"\033[1;33m{'| Mês ':7}{'| Imposto ':11}{'| L. Bruto ':9}{'| L. Liquido ':14}{'| Acumulado |':14}\033[0m"
 
 
 def tipos():
@@ -40,7 +40,10 @@ def tabela(num=0, ir=0, lucrobruto=0, lucroliquido=0, acumulado=0, cor=0):
         print(f'\033[1;30;44m|{num:^6}|{ir:^10}|{lucrobruto:^10}|{lucroliquido:^13}|{acumulado:^11}|\033[0m')
 
 
-def resumo(inicial, taxajuros, i, ir, lucrobruto, lucroliquido, montante):
+def resumo(inicial, taxajuros, i, ir, lucrobruto, lucroliquido, montante, aportes, total, p):
+    p = str(f'{p:.2f}').replace('.', ',')
+    total = str(f'{total:.2f}').replace('.', ',')
+    aportes = str(f'{aportes:.2f}').replace('.', ',')
     inicial = str(f'{inicial:.2f}').replace('.', ',')
     taxajuros = taxajuros * 100
     taxajuros = str(f'{taxajuros:.2f}').replace('.', ',')
@@ -50,11 +53,14 @@ def resumo(inicial, taxajuros, i, ir, lucrobruto, lucroliquido, montante):
     lucroliquido = str(f'{lucroliquido:.2f}').replace('.', ',')
     montante = str(f'{montante:.2f}').replace('.', ',')
     print(f'{"Valor Inicial R$:":<22}{inicial:>10}')
+    print(f'{"Aportes mensais R$:":<22}{aportes:>10}')
     print(f'{"Taxa de Juros %a.m:":<22}{taxajuros:>10}')
     print(f'{"Imposto de Renda %:":<22}{i:>10}')
     print(f'{"Imposto de Renda R$:":<22}{ir:>10}')
     print(f'{"Lucro Bruto R$:":<22}{lucrobruto:>10}')
     print(f'{"Lucro Líquido R$:":<22}{lucroliquido:>10}')
+    print(f'{"Total Aplicado R$:":<22}{total:>10}')
     print(f'{"Montante R$:":<22}{montante:>10}')
+    print(f'{"Lucro %:":<22}{p:>10}')
 
 
